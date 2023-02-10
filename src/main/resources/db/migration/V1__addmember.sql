@@ -5,5 +5,7 @@ CREATE TABLE IF NOT EXISTS member(
     lastname VARCHAR(15) NOT NULL,
     age INT NOT NULL,
     password VARCHAR(15) NOT NULL,
+    email VARCHAR (25) NOT NULL,
+    role VARCHAR(25) NOT NULL,
     PRIMARY KEY(id)
 )

@@ -25,7 +25,7 @@ class MemberService {
     }
     fun update(member: Member):Member{
         try {
-            memberRepository.findById(member.id)
+            memberRepository.findByNickname(member.id)
                 ?:throw Exception("El id de ${member.id} no existe")
             return memberRepository.save(member)
         }catch (ex:Exception){
@@ -34,7 +34,7 @@ class MemberService {
     }
 
     fun delete(id:Long?):Boolean?{
-        memberRepository.findById(id)
+        memberRepository.findByNickname(id)
             ?:throw Exception("No existe el id")
         memberRepository.deleteById(id!!)
         return true
