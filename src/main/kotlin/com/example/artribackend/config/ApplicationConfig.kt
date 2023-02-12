@@ -22,7 +22,7 @@ class ApplicationConfig {
     @Bean
     fun memberDetailService():UserDetailsService?{
         return UserDetailsService { nickname: String? ->
-            repository.findByNickname(nickname)
+            repository.findByEmail(nickname)
                 ?.orElseThrow{UsernameNotFoundException("User Not Found")}
         }
     }

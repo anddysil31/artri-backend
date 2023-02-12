@@ -29,6 +29,7 @@ class AuthenticationService {
             name= request.name
             lastname=request.lastname
             age = request.age
+            email = request.email
             passwordMember= passwordEncoder?.encode(request.password)
             role= request.role
 
@@ -49,7 +50,7 @@ class AuthenticationService {
                 request.password
             )
         )
-        val user = repository?.findByNickname(request.email)?.orElseThrow()
+        val user = repository?.findByEmail(request.email)?.orElseThrow()
         val jwtToken: String? = user?.let { jwtService?.generateToken(it) }
         return AuthenticationResponse().apply {
             token=jwtToken
