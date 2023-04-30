@@ -16,4 +16,6 @@ class Song {
     var id:Long? = null
     var name:String? = null
     var genre:String? = null
+    @Column(name="member_id")
+    var memberId:Long? = null
 }
