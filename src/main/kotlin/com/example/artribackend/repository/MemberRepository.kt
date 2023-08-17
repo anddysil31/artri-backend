@@ -1,6 +1,7 @@
 package com.example.artribackend.repository
 
 import com.example.artribackend.model.Member
+import com.example.artribackend.model.Role
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
@@ -13,4 +14,8 @@ interface MemberRepository:JpaRepository<Member, Long> {
 
     @Query("SELECT m FROM Member m WHERE m.email = :email")
     fun findIdByEmail(@Param("email") email: String?): Member?
+
+    @Query("SELECT m from Member m WHERE m.email =:email")
+    fun findRoleByEmail(@Param("email") email: String?): Member?
+
 }

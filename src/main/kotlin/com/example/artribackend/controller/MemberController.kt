@@ -35,6 +35,8 @@ class MemberController {
         return ResponseEntity(memberService.update(member), HttpStatus.ACCEPTED)
     }
 
+
+
     @DeleteMapping("/delete/{id}")
     fun delete(@PathVariable ("id") id:Long):Boolean?{
         return memberService.delete(id)

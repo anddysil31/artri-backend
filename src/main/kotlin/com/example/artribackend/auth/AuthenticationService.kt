@@ -53,11 +53,13 @@ class AuthenticationService {
         val user = repository?.findByEmail(request.email)?.orElseThrow()
         var idMember = repository?.findIdByEmail(request.email)?.id
         var memberName = repository?.findIdByEmail(request.email)?.nickname
+        var roleMember = repository?.findIdByEmail(request.email)?.role
 
         val jwtToken: String? = user?.let { jwtService?.generateToken(it) }
         return AuthenticationResponse().apply {
             token=jwtToken
             username = memberName
+            memberRole = roleMember
             userId = idMember
         }
     }
