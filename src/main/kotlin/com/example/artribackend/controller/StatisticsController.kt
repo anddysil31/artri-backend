@@ -9,7 +9,7 @@ import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/api/statistics")
+@RequestMapping("/api/v1/statistics")
 @CrossOrigin(methods = [RequestMethod.GET, RequestMethod.POST, RequestMethod.PATCH, RequestMethod.PUT, RequestMethod.DELETE])
 class StatisticsController {
     @Autowired
@@ -25,9 +25,9 @@ class StatisticsController {
         return ResponseEntity(statisticsService.listWithMember(), HttpStatus.OK)
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/member/{id}")
     fun listById(@PathVariable("id") id:Long):ResponseEntity<*>{
-        return ResponseEntity(statisticsService.findStatisticsById(id), HttpStatus.ACCEPTED)
+        return ResponseEntity(statisticsService.listStatsMember(id), HttpStatus.ACCEPTED)
     }
 
     @PostMapping

@@ -21,10 +21,10 @@ class StatisticsService {
     fun list ():List<Statistics>{
         return statisticsRepository.findAll()
     }
-
-    fun findStatisticsById(id:Long): Optional<Statistics> {
-        return statisticsRepository.findById(id)
+    fun listStatsMember(id: Long?): List<StatisticsView> {
+        return statisticsViewRepository.findById(id)
     }
+
 
     fun listWithMember(): List<StatisticsView> {
         return statisticsViewRepository.findAll()
